@@ -1,0 +1,94 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(to right,#11998e,#38ef7d);">
+
+    <div style="
+    background:white;
+    padding:50px;
+    border-radius:25px;
+    text-align:center;
+    width:90%;
+    max-width:600px;
+    box-shadow:0 0 30px rgba(0,0,0,0.2);">
+
+        <div style="
+        font-size:80px;">
+            🎉
+        </div>
+
+        <h1 style="
+        color:#1b8f3c;
+        margin-top:10px;">
+
+            Order Successfully Received
+        </h1>
+
+        <p style="
+        font-size:20px;
+        color:#555;
+        margin-top:20px;">
+
+            Thank you for shopping with us.
+
+        </p>
+
+        <p style="
+        font-size:18px;
+        margin-top:15px;">
+
+            Your order for
+
+            <strong>
+                {{ order.product_name }}
+            </strong>
+
+            has been completed successfully.
+
+        </p>
+
+        <div style="
+        margin-top:35px;">
+
+            <a href="{% url 'home' %}"
+            style="
+            display:inline-block;
+            padding:15px 30px;
+            background:#1b8f3c;
+            color:white;
+            text-decoration:none;
+            border-radius:12px;
+            font-size:18px;
+            margin-right:15px;">
+
+                Go To Home
+
+            </a>
+
+            <a href="{% url 'my_orders' %}"
+            style="
+            display:inline-block;
+            padding:15px 30px;
+            background:#ff9800;
+            color:white;
+            text-decoration:none;
+            border-radius:12px;
+            font-size:18px;">
+
+                My Orders
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-12 13:45+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\freshveg_project\settings.py:120
+msgid "English"
+msgstr ""
+
+#: .\freshveg_project\settings.py:122
+msgid "Telugu"
+msgstr ""
+
+#: .\freshveg_project\settings.py:124
+msgid "Hindi"
+msgstr ""
+
+#: .\freshveg_project\settings.py:126
+msgid "Tamil"
+msgstr ""
+
+#: .\freshveg_project\settings.py:128
+msgid "Malayalam"
+msgstr ""
+
+#: .\freshveg_project\settings.py:130
+msgid "Kannada"
+msgstr ""
+
+#: .\home\templates\home\index.html:170
+msgid "Home"
+msgstr ""
+
+#: .\home\templates\home\index.html:171
+msgid "About Us"
+msgstr ""
+
+#: .\home\templates\home\index.html:173
+msgid "Testimonials"
+msgstr ""
+
+#: .\home\templates\home\index.html:174
+msgid "Contact"
+msgstr ""
+
+#: .\home\templates\home\index.html:186
+msgid "Login"
+msgstr ""
+
+#: .\home\templates\home\index.html:198
+msgid "Logout"
+msgstr ""
+
+#: .\home\templates\home\index.html:211
+msgid "Seller Login"
+msgstr ""
+
+#: .\home\templates\home\index.html:219
+msgid "My Orders"
+msgstr ""
+
+#: .\home\templates\home\index.html:228
+msgid " Fresh Vegetables"
+msgstr ""
+
+#: .\home\templates\home\index.html:229
+msgid "Better Life"
+msgstr ""
+
+#: .\home\templates\home\index.html:237
+msgid "Shop Now"
+msgstr ""
+
+msgid "Home"
+msgstr "முகப்பு"
+
+msgid "About Us"
+msgstr "எங்களை பற்றி"
+
+msgid "Testimonials"
+msgstr "சான்றுகள்"
+
+msgid "Contact"
+msgstr "தொடர்பு"
+
+msgid "Login"
+msgstr "உள்நுழை"
+
+msgid "Logout"
+msgstr "வெளியேறு"
+
+msgid "Seller Login"
+msgstr "விற்பனையாளர் உள்நுழைவு"
+
+msgid "My Orders"
+msgstr "என் ஆர்டர்கள்"
+
+msgid "Shop Now"
+msgstr "இப்போது வாங்க"
+
+msgid "Learn More"
+msgstr "மேலும் அறிக"
+
+msgid "Fresh Vegetables, Better Life"
+msgstr "புதிய காய்கறிகள், சிறந்த வாழ்க்கை"

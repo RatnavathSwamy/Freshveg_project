@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Seller Registration</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            font-family:Arial;
+            background:#f4fff5;
+        }
+
+        .container{
+            width:90%;
+            max-width:900px;
+            background:white;
+            margin:40px auto;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            color:#1b8f3c;
+            margin-bottom:30px;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            padding:15px;
+            margin-bottom:20px;
+            border-radius:10px;
+            border:1px solid #ccc;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:16px;
+            border:none;
+            background:#1b8f3c;
+            color:white;
+            border-radius:10px;
+            font-size:20px;
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Vegetable Seller Registration</h1>
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <input type="text"
+               name="seller_name"
+               placeholder="Seller Name"
+               required>
+
+        <input type="number"
+               name="age"
+               placeholder="Age"
+               required>
+        photo:
+        <input type="file"
+               name="photo"
+               required>
+
+        <input type="text"
+               name="aadhaar_number"
+               placeholder="Aadhaar Number"
+               maxlength="12"
+               required>
+
+        <input type="text"
+               name="phone_number"
+               placeholder="Phone Number"
+               required>
+
+        <input type="text"
+               name="state"
+               placeholder="State"
+               required>
+
+        <input type="text"
+               name="district"
+               placeholder="District"
+               required>
+
+        <input type="text"
+               name="mandal"
+               placeholder="Mandal"
+               required>
+
+        <input type="text"
+               name="village"
+               placeholder="Village / Town"
+               required>
+
+        <input type="text"
+               name="market_name"
+               placeholder="Market Name"
+               required>
+
+        <textarea name="vegetables_selling"
+                  placeholder="Vegetables Selling"
+                  required></textarea>
+
+        <input type="number"
+               name="experience"
+               placeholder="Experience in Years"
+               required>
+
+        <button type="submit">
+            Register Seller
+        </button>
+
+    </form>
+
+    you have an account?<a href="/seller-login/"class="nav-btn">Login here
+   </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-12 13:45+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\freshveg_project\settings.py:120
+msgid "English"
+msgstr ""
+
+#: .\freshveg_project\settings.py:122
+msgid "Telugu"
+msgstr ""
+
+#: .\freshveg_project\settings.py:124
+msgid "Hindi"
+msgstr ""
+
+#: .\freshveg_project\settings.py:126
+msgid "Tamil"
+msgstr ""
+
+#: .\freshveg_project\settings.py:128
+msgid "Malayalam"
+msgstr ""
+
+#: .\freshveg_project\settings.py:130
+msgid "Kannada"
+msgstr ""
+
+#: .\home\templates\home\index.html:170
+msgid "Home"
+msgstr ""
+
+#: .\home\templates\home\index.html:171
+msgid "About Us"
+msgstr ""
+
+#: .\home\templates\home\index.html:173
+msgid "Testimonials"
+msgstr ""
+
+#: .\home\templates\home\index.html:174
+msgid "Contact"
+msgstr ""
+
+#: .\home\templates\home\index.html:186
+msgid "Login"
+msgstr ""
+
+#: .\home\templates\home\index.html:198
+msgid "Logout"
+msgstr ""
+
+#: .\home\templates\home\index.html:211
+msgid "Seller Login"
+msgstr ""
+
+#: .\home\templates\home\index.html:219
+msgid "My Orders"
+msgstr ""
+
+#: .\home\templates\home\index.html:228
+msgid " Fresh Vegetables"
+msgstr ""
+
+#: .\home\templates\home\index.html:229
+msgid "Better Life"
+msgstr ""
+
+#: .\home\templates\home\index.html:237
+msgid "Shop Now"
+msgstr ""
+
+msgid "Home"
+msgstr "ഹോം"
+
+msgid "About Us"
+msgstr "ഞങ്ങളേക്കുറിച്ച്"
+
+msgid "Testimonials"
+msgstr "സാക്ഷ്യപത്രങ്ങൾ"
+
+msgid "Contact"
+msgstr "ബന്ധപ്പെടുക"
+
+msgid "Login"
+msgstr "ലോഗിൻ"
+
+msgid "Logout"
+msgstr "ലോഗൗട്ട്"
+
+msgid "Seller Login"
+msgstr "വിൽപ്പനക്കാരൻ ലോഗിൻ"
+
+msgid "My Orders"
+msgstr "എന്റെ ഓർഡറുകൾ"
+
+msgid "Shop Now"
+msgstr "ഇപ്പോൾ വാങ്ങൂ"
+
+msgid "Learn More"
+msgstr "കൂടുതൽ അറിയുക"
+
+msgid "Fresh Vegetables, Better Life"
+msgstr "പുതിയ പച്ചക്കറികൾ, മികച്ച ജീവിതം"

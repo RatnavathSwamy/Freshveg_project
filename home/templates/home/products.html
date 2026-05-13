@@ -1,0 +1,721 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>FreshVeg Products</title>
+
+    <link rel="stylesheet"
+          href="{% static 'home/css/style.css' %}">
+
+    <style>
+
+        body{
+            background:#f5fff4;
+        }
+
+        .top-banner{
+            background:linear-gradient(to right,#1b8f3c,#3cbf5d);
+            color:white;
+            padding:60px;
+            text-align:center;
+        }
+
+        .top-banner h1{
+            font-size:60px;
+            margin-bottom:20px;
+        }
+
+        .top-banner p{
+            font-size:22px;
+        }
+
+        .offer{
+            background:#fff3cd;
+            color:#856404;
+            padding:20px;
+            text-align:center;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        .products-section{
+            padding:70px;
+        }
+
+        .products-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .products-title h1{
+            font-size:50px;
+            color:#1b8f3c;
+        }
+
+        .products-title p{
+            color:gray;
+            margin-top:15px;
+            font-size:20px;
+        }
+
+        .category-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:35px;
+        }
+
+        .product-card{
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 8px 20px rgba(0,0,0,0.1);
+            transition:0.4s;
+        }
+
+        .product-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .product-card img{
+            width:100%;
+            height:260px;
+            object-fit:cover;
+        }
+
+        .product-content{
+            padding:20px;
+        }
+
+        .product-content h2{
+            margin-bottom:10px;
+            color:#1b8f3c;
+        }
+
+        .price{
+            font-size:24px;
+            font-weight:bold;
+            color:#ff5722;
+            margin-bottom:10px;
+        }
+
+        .unit{
+            color:gray;
+            font-size:15px;
+        }
+
+        .description{
+            color:#555;
+            line-height:1.6;
+            margin-top:10px;
+            margin-bottom:20px;
+        }
+
+        .buttons{
+            display:flex;
+            gap:10px;
+        }
+
+        .buy-btn{
+            flex:1;
+            padding:12px;
+            border:none;
+            background:#1b8f3c;
+            color:white;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        .cart-btn{
+            flex:1;
+            padding:12px;
+            border:none;
+            background:#ff9800;
+            color:white;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        .why-shop{
+            margin-top:80px;
+            background:white;
+            padding:50px;
+            border-radius:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .why-shop h1{
+            text-align:center;
+            color:#1b8f3c;
+            margin-bottom:40px;
+            font-size:45px;
+        }
+
+        .why-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:30px;
+        }
+
+        .why-card{
+            text-align:center;
+        }
+
+        .why-card h2{
+            margin-top:15px;
+            color:#1b8f3c;
+        }
+
+        .why-card p{
+            color:gray;
+            margin-top:10px;
+            line-height:1.6;
+        }
+
+        footer{
+            background:#145c2b;
+            color:white;
+            text-align:center;
+            padding:40px;
+            margin-top:70px;
+        }
+
+        @media(max-width:1100px){
+
+            .category-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .why-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+
+        @media(max-width:700px){
+
+            .category-grid{
+                grid-template-columns:1fr;
+            }
+
+            .why-grid{
+                grid-template-columns:1fr;
+            }
+
+            .top-banner h1{
+                font-size:40px;
+            }
+
+            .products-section{
+                padding:30px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- TOP BANNER -->
+
+<section class="top-banner">
+
+    <h1>Fresh Vegetables Delivered Daily</h1>
+
+    <p>
+        Organic • Healthy • Farm Fresh • Fast Delivery
+    </p>
+
+</section>
+
+<!-- OFFER -->
+
+<div class="offer">
+    🎉 Free Delivery on Orders Above ₹499 | Flat 20% OFF on First Order
+</div>
+
+<!-- PRODUCTS -->
+ <div style="text-align:right; margin:20px;">
+
+    <a href="/my-orders/">
+
+        <button style="
+            background:#1b8f3c;
+            color:white;
+            border:none;
+            padding:15px 25px;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:18px;
+        ">
+
+            My Orders
+
+        </button>
+
+    </a>
+
+   
+    {% if user.is_authenticated %}
+
+<div style="position:absolute; top:20px; right:30px;">
+
+    <div class="dropdown" style="position:relative; display:inline-block;">
+
+        <button onclick="toggleDropdown()"
+            style="
+                background:#5809f7;
+                color:white;
+                border:none;
+                padding:10px 18px;
+                border-radius:30px;
+                cursor:pointer;
+                font-weight:bold;
+                font-size:15px;
+                box-shadow:0 4px 10px rgba(0,0,0,0.2);
+            ">
+
+            👤 {{ user.username }}
+
+        </button>
+
+        <div id="profileDropdown"
+            style="
+                display:none;
+                position:absolute;
+                right:0;
+                background:white;
+                min-width:180px;
+                box-shadow:0 4px 12px rgba(0,0,0,0.2);
+                border-radius:10px;
+                overflow:hidden;
+                z-index:999;
+                margin-top:10px;
+            ">
+
+            <a href="#"
+               style="
+                    display:block;
+                    padding:12px;
+                    text-decoration:none;
+                    color:#333;
+                    border-bottom:1px solid #eee;
+               ">
+               👤 My Profile
+            </a>
+
+            <a href="{% url 'logout' %}"
+               style="
+                    display:block;
+                    padding:12px;
+                    text-decoration:none;
+                    color:red;
+                    font-weight:bold;
+               ">
+               🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+
+    
+
+</div>
+
+<section class="products-section">
+
+    <div class="products-title">
+
+        <h1>Our Fresh Vegetable Collection</h1>
+
+        <p>
+            Buy healthy vegetables directly from trusted farmers
+        </p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+
+                <h2>Tomato</h2>
+
+                <div class="price">
+                    ₹40 <span class="unit">/ kg</span>
+                </div>
+
+                <p class="description">
+                    Fresh organic tomatoes rich in vitamins and antioxidants.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/tomato/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+
+                <h2>Potato</h2>
+
+                <div class="price">
+                    ₹30 <span class="unit">/ kg</span>
+                </div>
+
+                <p class="description">
+                    Farm fresh potatoes perfect for curries, fries and snacks.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/potato/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+
+                <h2>Onion</h2>
+
+                <div class="price">
+                    ₹45 <span class="unit">/ kg</span>
+                </div>
+
+                <p class="description">
+                    High quality onions directly sourced from local farms.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/onion/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+
+                <h2>Spinach</h2>
+
+                <div class="price">
+                    ₹25 <span class="unit">/ bunch</span>
+                </div>
+
+                <p class="description">
+                    Nutritious green spinach full of iron and minerals.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/spinach/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+
+                <h2>Carrot</h2>
+
+                <div class="price">
+                    ₹50 <span class="unit">/ kg</span>
+                </div>
+
+                <p class="description">
+                    Sweet and crunchy carrots perfect for salads and juices.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/carrot/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+
+                <h2>Broccoli</h2>
+
+                <div class="price">
+                    ₹90 <span class="unit">/ kg</span>
+                </div>
+
+                <p class="description">
+                    Healthy broccoli rich in fiber, vitamins and proteins.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/Broccoli/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 7 -->
+
+        <div class="product-card">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiZEk16LGB_gKTEHNjbWWOT608eIwKwhIlug&s">
+            <div class="product-content">
+
+                <h2>Cucumber</h2>
+
+                <div class="price">
+                    ₹35 <span class="unit">/ kg</span>
+                </div>
+
+                <p class="description">
+                    Fresh cucumbers with natural cooling and hydration benefits.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/Cucumber/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 8 -->
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1576186726115-4d51596775d1?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+
+                <h2>Capsicum</h2>
+
+                <div class="price">
+                    ₹70 <span class="unit">/ kg</span>
+                </div>
+
+                <p class="description">
+                    Colorful capsicum rich in vitamin C and antioxidants.
+                </p>
+
+                <div class="buttons">
+                    <button class="cart-btn">Add To Cart</button>
+                    <a href="/buy/Capsicum/">
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </a>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- WHY SHOP -->
+
+    <div class="why-shop">
+
+        <h1>Why Buy From FreshVeg?</h1>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <h2>🌿 Organic Farming</h2>
+                <p>
+                    We source vegetables from trusted natural farms.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h2>🚚 Fast Delivery</h2>
+                <p>
+                    Same day delivery available in selected locations.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h2>💚 Healthy Living</h2>
+                <p>
+                    Fresh vegetables improve immunity and overall health.
+                </p>
+            </div>
+
+            <div class="why-card">
+                <h2>💰 Affordable Prices</h2>
+                <p>
+                    Best market prices with premium quality vegetables.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>FreshVeg</h2>
+
+    <p>
+        Fresh vegetables directly from farm to your home.
+    </p>
+
+    <p>
+        © 2026 FreshVeg Store | Healthy Life Healthy Food
+    </p>
+
+</footer>
+<!--
+<script>
+
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            alert("Product Added Successfully!");
+
+        });
+
+    });
+
+</script>-->
+
+<script>
+
+function toggleDropdown() {
+
+    var dropdown = document.getElementById("profileDropdown");
+
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+}
+
+window.onclick = function(event) {
+
+    if (!event.target.matches('button')) {
+
+        var dropdown = document.getElementById("profileDropdown");
+
+        if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+        }
+    }
+}
+
+</script>
+
+</body>
+</html>

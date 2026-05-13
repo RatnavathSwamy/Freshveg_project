@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+        Accepted Orders
+    </title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            font-family:Arial;
+            background:#f5fff5;
+        }
+
+        .header{
+            background:#1b8f3c;
+            color:white;
+            padding:40px;
+            text-align:center;
+        }
+
+        .login-box{
+
+            width:90%;
+            max-width:600px;
+            margin:40px auto;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        input{
+
+            width:100%;
+            padding:15px;
+            margin-bottom:20px;
+            border-radius:10px;
+            border:1px solid #ccc;
+            font-size:16px;
+        }
+
+        button{
+
+            width:100%;
+            padding:15px;
+            background:#1b8f3c;
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        .orders{
+
+            width:95%;
+            max-width:1500px;
+            margin:40px auto;
+        }
+
+        .order-card{
+
+            background:white;
+            padding:35px;
+            border-radius:20px;
+            margin-bottom:40px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .top{
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .profile{
+
+            display:flex;
+            align-items:center;
+            gap:20px;
+        }
+
+        .profile img{
+
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            object-fit:cover;
+            border:5px solid #1b8f3c;
+        }
+
+        .status{
+
+            background:#4caf50;
+            color:white;
+            padding:10px 20px;
+            border-radius:50px;
+            font-weight:bold;
+        }
+
+        .grid{
+
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+            margin-top:30px;
+        }
+
+        .box{
+
+            background:#f8fff8;
+            padding:20px;
+            border-radius:15px;
+        }
+
+        .box h3{
+
+            color:#1b8f3c;
+            margin-bottom:10px;
+        }
+
+        .actions{
+
+            display:flex;
+            gap:15px;
+            margin-top:30px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+
+            padding:14px 20px;
+            border-radius:10px;
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .call{
+            background:#1b8f3c;
+        }
+
+        .chat{
+            background:#25D366;
+        }
+
+        .map{
+            background:#ff5722;
+        }
+
+        .history{
+            background:#673ab7;
+        }
+
+        .delivery{
+            background:#2196f3;
+        }
+
+        @media(max-width:1000px){
+
+            .grid{
+                grid-template-columns:1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>
+        Accepted Orders Dashboard
+    </h1>
+
+    <p>
+        Seller can view all accepted buyer orders
+    </p>
+
+</div>
+
+<div class="login-box">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input type="text"
+               name="seller_name"
+               placeholder="Enter Seller Name"
+               required>
+
+        <input type="text"
+               name="phone_number"
+               placeholder="Enter Phone Number"
+               required>
+
+        <button type="submit">
+
+            View Accepted Orders
+
+        </button>
+
+    </form>
+    
+
+</div>
+
+ 
+<a href="/seller-dashboard"
+           class="btn delivery">
+
+            Back
+
+        </a>
+{% if error %}
+
+<h2 style="
+text-align:center;
+color:red;">
+
+    {{ error }}
+
+</h2>
+
+{% endif %}
+
+{% if orders %}
+
+<div class="orders">
+
+{% for order in orders %}
+
+<div class="order-card">
+
+    <div class="top">
+
+        <div class="profile">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+            <div>
+
+                <h1>
+
+                    {{ order.customer_name }}
+
+                </h1>
+
+                <p>
+
+                    Buyer ID :
+                    BUYER{{ order.id }}
+
+                </p>
+
+                <p>
+
+                    Username :
+                    {{ order.customer_name }}
+
+                </p>
+
+                <p>
+
+                    Email :
+                    buyer{{ order.id }}@gmail.com
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="status">
+
+            {{ order.status }}
+
+        </div>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="box">
+
+            <h3>
+                Product
+            </h3>
+
+            <p>
+                {{ order.product_name }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Quantity
+            </h3>
+
+            <p>
+                {{ order.quantity }} KG
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Total Price
+            </h3>
+
+            <p>
+                ₹{{ order.total_price }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Phone
+            </h3>
+
+            <p>
+                {{ order.phone }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Payment Method
+            </h3>
+
+            <p>
+                {{ order.payment_method }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Delivery Status
+            </h3>
+
+            <p>
+                Ready For Delivery
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                State
+            </h3>
+
+            <p>
+                {{ order.buyer_state }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                District
+            </h3>
+
+            <p>
+                {{ order.buyer_district }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Mandal
+            </h3>
+
+            <p>
+                {{ order.buyer_mandal }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Village / Town
+            </h3>
+
+            <p>
+                {{ order.buyer_village }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Full Address
+            </h3>
+
+            <p>
+                {{ order.address }}
+            </p>
+
+        </div>
+
+        <div class="box">
+
+            <h3>
+                Ordered Date
+            </h3>
+
+            <p>
+                {{ order.ordered_at }}
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="actions">
+
+        <!-- CALL BUTTON -->
+
+        <a href="tel:{{ order.phone }}"
+           class="btn call">
+
+            📞 Call Buyer
+
+        </a>
+
+        <!-- WHATSAPP -->
+
+        <a href="https://wa.me/91{{ order.phone }}"
+           target="_blank"
+           class="btn chat">
+
+            💬 Chat Buyer
+
+        </a>
+
+        <!-- GOOGLE MAP -->
+
+        <a href="https://www.google.com/maps/search/?api=1&query={{ order.address }} {{ order.buyer_village }} {{ order.buyer_mandal }} {{ order.buyer_district }} {{ order.buyer_state }}"
+           target="_blank"
+           class="btn map">
+
+            📍 Open Google Map
+
+        </a>
+
+        <!-- HISTORY -->
+
+        <a href="#"
+           class="btn history">
+
+            📦 Buyer Order History
+
+        </a>
+
+        <!-- DELIVERY -->
+
+        <a href="#"
+           class="btn delivery">
+
+            🚚 Update Delivery Status
+
+        </a>
+        
+
+    </div>
+    
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+</body>
+</html>

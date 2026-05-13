@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Seller Profile</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            font-family:Arial;
+            background:#f4fff5;
+        }
+
+        .profile-card{
+            width:90%;
+            max-width:1000px;
+            background:white;
+            margin:50px auto;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .header{
+            background:#1b8f3c;
+            color:white;
+            padding:40px;
+            text-align:center;
+        }
+
+        .header h1{
+            margin:0;
+            font-size:45px;
+        }
+
+        .content{
+            padding:40px;
+        }
+
+        .photo{
+            text-align:center;
+            margin-top:-90px;
+        }
+
+        .photo img{
+            width:180px;
+            height:180px;
+            border-radius:50%;
+            border:8px solid white;
+            object-fit:cover;
+        }
+
+        .seller-id{
+            background:#fff3cd;
+            color:#856404;
+            padding:20px;
+            text-align:center;
+            font-size:25px;
+            border-radius:15px;
+            margin-bottom:30px;
+            font-weight:bold;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:25px;
+        }
+
+        .box{
+            background:#f8fff8;
+            padding:20px;
+            border-radius:15px;
+        }
+
+        .box h3{
+            color:#1b8f3c;
+            margin-bottom:10px;
+        }
+
+        .id-card{
+            margin-top:50px;
+            background:#1b8f3c;
+            color:white;
+            padding:30px;
+            border-radius:20px;
+        }
+ .id-card h2{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        @media(max-width:800px){
+
+            .grid{
+                grid-template-columns:1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="profile-card">
+
+    <div class="header">
+
+        <h1>
+            Seller Profile
+        </h1>
+
+    </div>
+
+    <div class="content">
+
+        <div class="photo">
+
+            <img src="{{ seller.photo.url }}">
+
+        </div>
+
+        <div class="seller-id">
+
+            Seller ID : {{ seller.seller_id }}
+
+        </div>
+
+        <div class="grid">
+
+            <div class="box">
+                <h3>Seller Name</h3>
+                <p>{{ seller.seller_name }}</p>
+            </div>
+
+            <div class="box">
+                <h3>Age</h3>
+                <p>{{ seller.age }}</p>
+            </div>
+
+            <div class="box">
+                <h3>Phone Number</h3>
+                <p>{{ seller.phone_number }}</p>
+            </div>
+
+            <div class="box">
+                <h3>Aadhaar Number</h3>
+                <p>{{ seller.aadhaar_number }}</p>
+            </div>
+
+            <div class="box">
+                <h3>State</h3>
+                <p>{{ seller.state }}</p>
+            </div>
+
+            <div class="box">
+                <h3>District</h3>
+                <p>{{ seller.district }}</p>
+            </div>
+
+            <div class="box">
+                <h3>Mandal</h3>
+                <p>{{ seller.mandal }}</p>
+            </div>
+
+            <div class="box">
+                <h3>Village / Town</h3>
+                <p>{{ seller.village }}</p>
+            </div>
+
+            <div class="box">
+                <h3>Market Name</h3>
+                <p>{{ seller.market_name }}</p>
+            </div>
+
+            <div class="box">
+                <h3>Experience</h3>
+                <p>{{ seller.experience }} Years</p>
+            </div>
+
+        </div>
+
+        <div class="id-card">
+
+            <h2>FreshVeg Official Seller ID Card</h2>
+
+            <p><strong>ID Number:</strong> {{ seller.seller_id }}</p>
+
+            <p><strong>Name:</strong> {{ seller.seller_name }}</p>
+
+            <p><strong>Market:</strong> {{ seller.market_name }}</p>
+
+            <p><strong>Phone:</strong> {{ seller.phone_number }}</p>
+
+            <p><strong>Location:</strong>
+                {{ seller.village }},
+                {{ seller.district }}
+            </p>
+
+        </div>
+
+    </div>
+    </div>
+
+</body>
+</html>
